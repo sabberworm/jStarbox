@@ -104,6 +104,9 @@ This handler is a great choice to make an Ajax call. Note however, that most Aja
 
 ## Curiousities
 
+### License
+jStarbox is freely distributable under the terms of an MIT-style license.
+
 ### Rounding
 There is no rounding of the initial average. If you want a nice full-star (or half-star) image, round it yourself first (you know how to do that!).
 
