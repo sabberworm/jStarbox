@@ -5,7 +5,15 @@ This is an implementation of rating stars on top of jQuery. It follows the philo
 But there are some great things about it: it is quite small, does not produce massive amounts of inline styles and is mostly compatible with existing css for the Prototype Starbox.
 
 ## Usage
-Have an empty element ready. Include the js and css files and you’re good to go.
+Have an empty element ready. Include the js and css files and you’re good to go:
+
+	starbox.starbox({
+		average: 0.42,
+		changeable: 'once',
+		autoUpdateValue: true,
+		ghosting: true
+	});
+
 
 ## Theming
 
@@ -28,7 +36,7 @@ Have your own css file included after the jstarbox.css file and override the fol
 	.starbox .rated.hover .colorbar { background: #1e90ff; }
 	.starbox .ghost { background: #a1a1a1; }
 
-jStarbox will also assign a class “star-#” (starting at 1) to each star used so you can use this to assign different images to the individual stars.
+jStarbox will also assign a class “star-#” (starting at 0) to each star used so you can use this to assign different images to the individual stars.
 
 ## Config
 
