@@ -31,9 +31,9 @@
 
 /* Override with your own image and size… */
 .starbox .stars .star_holder .star {
-	background-image: url('../images/big.png');
-	width: 32px;
-	height: 32px;
+	background-image: url('../images/5-large.png');
+	width: 33px;
+	height: 33px;
 }
 
 /* Override with your own colours… */

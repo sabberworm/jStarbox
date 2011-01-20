@@ -1,12 +1,25 @@
 (function() {
 	var dataKey = 'jstarbox-data';
 	var eventNamespace = '.jstarbox';
+	var defaultOptions = {
+		average: 0.5,
+		stars: 5,
+		buttons: 5, //false will allow any value between 0 and 1 to be set
+		ghosting: false,
+		changeable: true, // true, false, or "once"
+		autoUpdateValue: false
+	};
 	var methods = {
 		destroy: function() {
 			this.removeData(dataKey);
 			this.unbind(eventNamespace).find('*').unbind(eventNamespace);
 			this.removeClass('starbox');
 			this.empty();
+		},
+		
+		getValue: function() {
+			var data = this.data(dataKey);
+			return data.opts.currentValue;
 		},
 		
 		setValue: function(val) {
@@ -18,6 +31,11 @@
 			}
 			data.colorbar.css({width: ""+(val*size)+"px"});
 			data.opts.currentValue = val;
+		},
+		
+		getOption: function(option) {
+			var data = this.data(dataKey);
+			return data.opts[option];
 		},
 		
 		setOption: function(option, value) {
@@ -35,17 +53,9 @@
 	jQuery.fn.extend({
 		starbox: function(options) {
 			if(options.constructor === String && methods[options]) {
-				methods[options].apply(this, Array.prototype.slice.call(arguments, 1));
-				return this;
+				return methods[options].apply(this, Array.prototype.slice.call(arguments, 1)) || this;
 			}
-			options = jQuery.extend({
-				stars: 5,
-				buttons: 5,
-				average: 0.5,
-				ghosting: false,
-				changeable: true,
-				autoUpdateValue: false
-			}, options);
+			options = jQuery.extend({}, defaultOptions, options);
 			this.each(function(count) {
 				var element = jQuery(this);
 				
@@ -69,6 +79,8 @@
 					for(var i=0;i<opts.stars;i++) {
 						var star = jQuery('<div/>').addClass('star').addClass('star-'+i).appendTo(star_holder);
 					}
+					// (Re-)Set initial value
+					methods.setOption.call(element, 'average', opts.average);
 				};
 				data.methods.update_stars();
 
@@ -96,16 +108,18 @@
 					positioner.removeClass('hover');
 					methods.setValue.call(element, opts.average);
 				});
-				// Set initial value
-				methods.setOption.call(element, 'average', opts.average);
 				
 				positioner.bind('click'+eventNamespace, function(event) {
 					if(!opts.changeable) return;
+					if(opts.changeable === 'once') {
+						positioner.triggerHandler('mouseleave');
+						opts.changeable = false;
+					}
 					if(opts.autoUpdateValue) {
 						positioner.addClass('rated');
 						methods.setOption.call(element, 'average', opts.currentValue);
 					}
-					var new_average = element.triggerHandler('jstarbox-value-changed', opts.currentValue);
+					var new_average = element.triggerHandler('starbox-value-changed', opts.currentValue);
 					if(!isNaN(parseFloat(new_average)) && isFinite(new_average)) {
 						methods.setOption.call(element, 'average', new_average);
 					}
