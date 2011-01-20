@@ -45,27 +45,27 @@ The value always ranges from 0.0f to 1.0f.
 There are several configuration options:
 
 ### average (float 0…1)
-The option “average” sets the initial/fixed value of the jStarbox. It is called “average” because that’s what the original Starbox calls it. It represents the “stuck” value of the Starbox; the one the stars return to when stopped hovering.
+The option “average” sets the initial/fixed value of the jStarbox. It is called “average” because that’s what the original Starbox calls it. It represents the “stuck” value of the Starbox; the one the stars return to when stopped hovering. 
 Default: 0.5
 
 ### stars (unsigned integer)
-This sets how many stars will be shown.
+This sets how many stars will be shown. 
 Default: 5
 
 ### buttons (unsigned integer, false)
-This sets how many clickable areas there will be. It is usually the same as the number of stars or double that (half-star ratings). You can also set this to false to allow any value between 0 and 1 as a rating.
+This sets how many clickable areas there will be. It is usually the same as the number of stars or double that (half-star ratings). You can also set this to false to allow any value between 0 and 1 as a rating. 
 Default: 5
 
 ### ghosting (boolean)
-Whether to show a ghost of the previous value when hovering.
+Whether to show a ghost of the previous value when hovering. 
 Default: false
 
 ### changeable (boolean, string)
-Whether the user is allowed to hover over the rating and change it. Can also be set to "once" to deny rating after the first time. Note that this will only actually change the value if it’s returned from the starbox-value-changed event handler or if “autoUpdateAverage” is true.
+Whether the user is allowed to hover over the rating and change it. Can also be set to "once" to deny rating after the first time. Note that this will only actually change the value if it’s returned from the starbox-value-changed event handler or if “autoUpdateAverage” is true. 
 Default: true
 
 ### autoUpdateAverage (boolean)
-Whether to automatically update the new “average” after the user is done rating without the need for the starbox-value-changed event.
+Whether to automatically update the new “average” after the user is done rating without the need for the starbox-value-changed event. 
 Default: false
 
 ## Methods
