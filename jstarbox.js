@@ -7,7 +7,7 @@
 		buttons: 5, //false will allow any value between 0 and 1 to be set
 		ghosting: false,
 		changeable: true, // true, false, or "once"
-		autoUpdateValue: false
+		autoUpdateAverage: false
 	};
 	var methods = {
 		destroy: function() {
@@ -40,7 +40,12 @@
 		
 		setOption: function(option, value) {
 			var data = this.data(dataKey);
-			// FIXME: deny option changes for unchangeable options
+			
+			console.log('setOption', option, value);
+			if(option === 'changeable' && value === false) {
+				data.positioner.triggerHandler('mouseleave');
+			}
+			
 			data.opts[option] = value;
 			
 			if(option === 'stars') {
@@ -111,17 +116,19 @@
 				
 				positioner.bind('click'+eventNamespace, function(event) {
 					if(!opts.changeable) return;
-					if(opts.changeable === 'once') {
-						positioner.triggerHandler('mouseleave');
-						opts.changeable = false;
-					}
-					if(opts.autoUpdateValue) {
+					
+					if(opts.autoUpdateAverage) {
 						positioner.addClass('rated');
 						methods.setOption.call(element, 'average', opts.currentValue);
 					}
+					
 					var new_average = element.triggerHandler('starbox-value-changed', opts.currentValue);
 					if(!isNaN(parseFloat(new_average)) && isFinite(new_average)) {
 						methods.setOption.call(element, 'average', new_average);
+					}
+					
+					if(opts.changeable === 'once') {
+						methods.setOption.call(element, 'changeable', false);
 					}
 				});
 				

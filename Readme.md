@@ -10,7 +10,7 @@ Have an empty element ready. Include the js and css files and you’re good to g
 	starbox.starbox({
 		average: 0.42,
 		changeable: 'once',
-		autoUpdateValue: true,
+		autoUpdateAverage: true,
 		ghosting: true
 	});
 
@@ -61,10 +61,10 @@ Whether to show a ghost of the previous value when hovering.
 Default: false
 
 ### changeable (boolean, string)
-Whether the user is allowed to hover over the rating and change it. Can also be set to "once" to deny rating after the first time. Note that this will only actually change the value if it’s returned from the starbox-value-changed event handler or if “autoUpdateValue” is true.
+Whether the user is allowed to hover over the rating and change it. Can also be set to "once" to deny rating after the first time. Note that this will only actually change the value if it’s returned from the starbox-value-changed event handler or if “autoUpdateAverage” is true.
 Default: true
 
-### autoUpdateValue (boolean)
+### autoUpdateAverage (boolean)
 Whether to automatically update the new “average” after the user is done rating without the need for the starbox-value-changed event.
 Default: false
 
