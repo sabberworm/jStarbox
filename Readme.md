@@ -101,3 +101,11 @@ This handler is a great choice to make an Ajax call. Note however, that most Aja
 			}
 		});
 	});
+
+## Curiousities
+
+### Rounding
+There is no rounding of the initial average. If you want a nice full-star (or half-star) image, round it yourself first (you know how to do that!).
+
+### Images
+The philosophy follows that of the original Starbox which means it uses semi-transparent images under whose it displays bars with the same height and an arbitrary length (representing the rating). These bars are relatively easily stylable using background colors (or even images). The only drawback (I can think of) is that Starboxes don’t work on non-unicolor backgrounds (at least not if you don’t exactly know which part of the background they’re going to land on) and require new images for non-white unicolor backgrounds.

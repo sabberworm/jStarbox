@@ -41,7 +41,6 @@
 		setOption: function(option, value) {
 			var data = this.data(dataKey);
 			
-			console.log('setOption', option, value);
 			if(option === 'changeable' && value === false) {
 				data.positioner.triggerHandler('mouseleave');
 			}
