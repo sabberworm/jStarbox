@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+<head>
+	<meta charset='utf-8' />
+	<title>jStarbox Demo</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="jstarbox.js"></script>
+	<!-- <script src="https://github.com/sabberworm/jStarbox/raw/master/jstarbox.js"></script> -->
+	<link rel="stylesheet" href="https://github.com/sabberworm/jStarbox/raw/master/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+	<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+		jQuery(function() {
+			jQuery('.starbox').each(function() {
+				var starbox = jQuery(this);
+				starbox.starbox({
+					average: starbox.attr('data-start-value'),
+					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+					ghosting: starbox.hasClass('ghosting'),
+					autoUpdateAverage: starbox.hasClass('autoupdate'),
+					buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+					stars: starbox.attr('data-star-count') || 5
+				}).bind('starbox-value-changed', function(event, value) {
+					if(starbox.hasClass('random')) {
+						var val = Math.random();
+						starbox.next().text('Random: '+val);
+						return val;
+					} else {
+						starbox.next().text('Clicked: '+value);
+					}
+				}).bind('starbox-value-moved', function(event, value) {
+					starbox.next().text('Moved to: '+value);
+				});
+			});
+		});
+	//--><!]]>
+	</script>
+	<style type="text/css" media="screen">
+		<!--/*--><![CDATA[/*><!--*/
+			.starbox.small .stars .star_holder .star {
+				background-image: url('https://github.com/sabberworm/jStarbox/raw/master/images/6-small.png');
+				width: 17px;
+				height: 17px;
+			}
+			
+			.starbox.alternate .stars .star_holder .star {
+				background-image: url('https://github.com/sabberworm/jStarbox/raw/master/images/ribbon.png');
+				width: 29px;
+				height: 28px;
+			}
+			
+			.starbox.colours .stars { background: #f9c412; }
+			.starbox.colours .hover .stars { background: #BD940F; }
+			.starbox.colours .rated .stars { background: #dcdcdc; }
+			.starbox.colours .rated.hover .stars { background: #cccccc; }
+			.starbox.colours .colorbar { background: #a56a1c; }
+			.starbox.colours .hover .colorbar { background: #f4341f; }
+			.starbox.colours .rated .colorbar { background: #c29a65; }
+			.starbox.colours .rated.hover .colorbar { background: #9f0e00; }
+			.starbox.colours .ghost { background: #e2b6b2; }
+			
+			.starbox.gradient .stars .colorbar { background-image: url('gradient.png') !important; background-repeat: repeat-x; }
+			
+			body {
+				background-color: #FFF;
+				font-family: Calibri, Helvetica, sans-serif;
+				margin: 12px;
+			}
+			
+			section {
+				clear: left;
+			}
+			
+			.block {
+				float: left;
+				width: 300px;
+			}
+			
+			h1, h2, h3 {
+				margin: 0.8em -12px;
+				padding: 0.4em 12px;
+				color: #fefbfc;
+			}
+			
+			h1 {
+				background-color: #d92b5f;
+				text-shadow: #f7d3de 2px 2px 6px;
+			}
+			
+			h2 {
+				background-color: #119fb1;
+				text-shadow: #d7eff2 2px 2px 6px;
+			}
+			
+			h3 {
+				background-color: transparent;
+				color: #000;
+				text-shadow: #9a9a9a 2px 2px 6px;
+			}
+		/*]]>*/-->
+	</style>
+</head>
+<body>
+	<h1>Examples</h1>
+	<section>
+		<h2>General</h2>
+		<div class="block">
+			<h3>Plain</h3>
+			<div class="starbox"> </div><p></p>
+		</div>
+		<div class="block">
+			<h3>Ghosting</h3>
+			<div class="starbox ghosting" data-start-value="0.8"> </div><p></p>
+		</div>
+		<div class="block">
+			<h3>Ghosting & Auto-Updating</h3>
+			<div class="starbox ghosting autoupdate"> </div><p></p>
+		</div>
+	</section>
+	<section>
+		<h2>Theming</h2>
+		<div class="block">
+			<h3>Small</h3>
+			<div class="starbox small ghosting"> </div><p></p>
+		</div>
+		<div class="block">
+			<h3>Colours</h3>
+			<div class="starbox colours autoupdate smooth"> </div><p></p>
+		</div>
+		<div class="block">
+			<h3>Small & Colours</h3>
+			<div class="starbox colours ghosting small autoupdate" data-button-count="20" data-star-count="10"> </div><p></p>
+		</div>
+		<div class="block">
+			<h3>Gradient</h3>
+			<div class="starbox gradient ghosting autoupdate" data-button-count="20"> </div><p></p>
+		</div>
+	</section>
+	<section>
+		<h2>Manipulation</h2>
+		<div class="block">
+			<h3>Random Result</h3>
+			<div class="starbox random ghosting"> </div><p></p>
+		</div>
+		<div class="block">
+			<h3>Smooth</h3>
+			<div class="starbox alternate autoupdate smooth"> </div><p></p>
+		</div>
+		<div class="block">
+			<h3>Half-Star-Rating & Click-Once</h3>
+			<div class="starbox ghosting autoupdate clickonce" data-button-count="10"> </div><p></p>
+		</div>
+	</section>
+</body>
+</html>
