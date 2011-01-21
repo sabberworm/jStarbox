@@ -2,7 +2,7 @@ jQuery Starbox clone
 --------------
 This is an implementation of rating stars on top of jQuery. It follows the philosophy of the Prototype/Scriptaculous Starbox plugin but is not quite as sophisticated. It is not even currently tested on any IE version!
 
-But there are some great things about it: it is quite small, does not produce massive amounts of inline styles and is mostly compatible with existing css for the Prototype Starbox.
+But there are some great things about it: it is quite small, does not produce massive amounts of inline styles and is mostly compatible with existing css for the Prototype Starbox. [Just try it](http://sabberworm.github.com/jStarbox/)!
 
 ## Usage
 Have an empty element ready. Include the js and css files and you’re good to go:
