@@ -127,6 +127,7 @@
 					positioner.addClass('hover');
 					methods.setValue.call(element, val, size);
 					element.starbox('setValue', val, size);
+					element.triggerHandler('starbox-value-moved', val);
 				});
 				
 				positioner.bind('mouseleave'+eventNamespace, function(event) {
