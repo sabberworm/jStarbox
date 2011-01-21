@@ -88,9 +88,6 @@ Can be used to set options after initialisation. All configuration options can b
 
 ## Events
 
-### starbox-value-changed
-The “starbox-value-changed” event is fired after the user has clicked to rate. The handler is given the rated value as the first parameter after the event. Return a value here to set it as the new average.
-
 ### starbox-value-moved
 Is triggered whenever the user has moved the mouse cursor. This does not always represent a change in the visible value though this behaviour might change in the future.
 
@@ -106,6 +103,9 @@ This handler is a great choice to make an Ajax call. Note however, that most Aja
 			}
 		});
 	});
+
+### starbox-value-changed
+The “starbox-value-changed” event is fired after the user has clicked to rate. The handler is given the rated value as the first parameter after the event. Return a value here to set it as the new average.
 
 ## Curiousities
 
