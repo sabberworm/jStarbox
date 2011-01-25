@@ -75,6 +75,11 @@
 			} else if(option === 'average') {
 				this.starbox('setValue', value, null, true);
 			}
+		},
+		
+		markAsRated: function() {
+			var data = this.data(dataKey);
+			data.positioner.addClass('rated');
 		}
 	};
 	jQuery.fn.extend({
@@ -141,7 +146,7 @@
 					if(!opts.changeable) return;
 					
 					if(opts.autoUpdateAverage) {
-						positioner.addClass('rated');
+						methods.markAsRated.call(element);
 						methods.setOption.call(element, 'average', opts.currentValue);
 					}
 					
