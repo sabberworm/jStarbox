@@ -117,7 +117,10 @@
 						ghost.show();
 					}
 					var size = positioner.width();
-					var x = event.layerX || event.offsetX;
+					var x = event.layerX;
+					if(x === undefined) {
+						x = (event.pageX-positioner.offset().left);
+					}
 					var val = x/size;
 					if(opts.buttons) {
 						val *= opts.buttons;
