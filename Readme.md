@@ -86,6 +86,9 @@ Returns an option of the options hash. Can also be used to get the current “st
 ### setOption(name, value)
 Can be used to set options after initialisation. All configuration options can be re-set after initialisation.
 
+### markAsRated()
+This will add the rated class so that this starbox will appear as rated. The rated class is added automatically when using autoUpdateAverage.
+
 ## Events
 
 ### starbox-value-changed
