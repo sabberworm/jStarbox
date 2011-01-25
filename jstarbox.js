@@ -117,7 +117,8 @@
 						ghost.show();
 					}
 					var size = positioner.width();
-					var val = event.layerX/size;
+					var x = event.layerX || event.offsetX;
+					var val = x/size;
 					if(opts.buttons) {
 						val *= opts.buttons;
 						val = Math.floor(val);
