@@ -78,7 +78,7 @@ Clears the element that was used to create the starbox and removes all used even
 Returns the currently displayed value. Note that this is *not* always the current average: when hovering over the element, the current value can be different. To get the current “average”, use .starbox("getOption", "average").
 
 ### setValue(name, value)
-Sets the current average. Can be useful for animation/display/show purposes. Use .starbox("setOption", "average", value) to set the current average.
+Sets the current value (see above). Can be useful for animation/display/show purposes. Use .starbox("setOption", "average", value) to set the current average.
 
 ### getOption(name)
 Returns an option of the options hash. Can also be used to get the current “stuck” value, the current average.
