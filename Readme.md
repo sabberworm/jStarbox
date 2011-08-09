@@ -40,7 +40,7 @@ jStarbox will also assign a class “`star-#`” (starting at 0) to each star us
 
 ## Config
 
-The value always ranges from `0.0f` to `1.0f`.
+The value always ranges from `0.0` to `1.0`.
 
 There are several configuration options:
 
@@ -61,7 +61,7 @@ Whether to show a ghost of “average” value when hovering.
 Default: `false`
 
 ### changeable (boolean, string)
-Whether the user is allowed to hover over the rating and change it. Can also be set to "once" to deny rating after the first time. Note that this will only actually change the value if it’s returned from the starbox-value-changed event handler or if “autoUpdateAverage” is true.  
+Whether the user is allowed to hover over the rating and change it. Can also be set to `"once"` to deny rating after the first time. Note that this will only actually change the value if it’s returned from the starbox-value-changed event handler or if “autoUpdateAverage” is true.  
 Default: `true`
 
 ### autoUpdateAverage (boolean)
@@ -90,7 +90,7 @@ Can be used to set options after initialisation. All configuration options can b
 This will add the rated class so that this starbox will appear as rated. The rated class is added automatically when using autoUpdateAverage.
 
 ## Events
-Add events using `jQuery(element).bind('event-name', function(event, value))`.
+Add events using `jQuery(element).bind('event-name', function(event, value) {…})`.
 
 ### starbox-value-changed
 The “`starbox-value-changed`” event is fired after the user has clicked to rate. The handler is given the rated value as the first parameter after the event. Return a value here to set it as the new average.
