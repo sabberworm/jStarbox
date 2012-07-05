@@ -90,7 +90,7 @@ Can be used to set options after initialisation. All configuration options can b
 This will add the rated class so that this starbox will appear as rated. The rated class is added automatically when using autoUpdateAverage.
 
 ## Events
-Add events using `jQuery(element).bind('event-name', function(event, value) {…})`.
+Add event handlers using `jQuery(element).bind('event-name', function(event, value) {…})`.
 
 ### starbox-value-changed
 The “`starbox-value-changed`” event is fired after the user has clicked to rate. The handler is given the rated value as the first parameter after the event. Return a value here to set it as the new average.
