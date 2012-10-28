@@ -52,7 +52,7 @@ Default: `0.5`
 This sets how many stars will be shown.  
 Default: `5`
 
-### buttons (unsigned integer, false)
+### buttons (unsigned integer | false)
 This sets how many clickable areas there will be. It is usually the same as the number of stars or double that (half-star ratings). You can also set this to false to allow any value between 0 and 1 as a rating.  
 Default: `5`
 
@@ -60,7 +60,7 @@ Default: `5`
 Whether to show a ghost of “average” value when hovering.  
 Default: `false`
 
-### changeable (boolean, string)
+### changeable (boolean | string)
 Whether the user is allowed to hover over the rating and change it. Can also be set to `"once"` to deny rating after the first time. Note that this will only actually change the value if it’s returned from the starbox-value-changed event handler or if “autoUpdateAverage” is true.  
 Default: `true`
 
