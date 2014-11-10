@@ -7,7 +7,7 @@ But there are some great things about it: it is quite small, does not produce ma
 ## Usage
 Have an empty element ready. Include the js and css files and you’re good to go:
 
-	element.starbox({
+	$(element).starbox({
 		average: 0.42,
 		changeable: 'once',
 		autoUpdateAverage: true,
